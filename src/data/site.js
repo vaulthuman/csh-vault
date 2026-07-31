@@ -2,7 +2,7 @@
 export const firm = {
   name: "Vault", wordmark: "CSH Vault",
   legalName: "CSH Vault Consulting, LLC",
-  email: "russ@vaultdevelopment.com",   // confirm/swap public contact
+  email: "csh@csh-vault.com",   // confirm/swap public contact
   kicker: "Development Advisors · Business Coaching",
   bookingUrl: "#start",
 };
