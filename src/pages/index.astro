@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { firm, hero, pillars, turn, housingTypes, markets, why, closing, footerLine } from '../data/site.js';
+import { firm, hero, pillars, turn, housingTypes, why, closing, footerLine } from '../data/site.js';
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{firm.legalName} — Development Advisors &amp; Business Coaching</title>
-  <meta name="description" content="CSH Vault Consulting — development advisory and operator coaching for land and multifamily housing across Texas." />
+  <meta name="description" content="CSH Vault Consulting — development advisory and operator coaching for land and multifamily housing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -55,12 +55,6 @@ const year = new Date().getFullYear();
         {housingTypes.map((t) => <span class="tag">{t}</span>)}
       </div>
 
-      <hr class="rule" />
-
-      <h2 class="sec">Where we work</h2>
-      <div class="markets">
-        {markets.map((m) => <div class="market">{m}</div>)}
-      </div>
 
       <hr class="rule" />
 
