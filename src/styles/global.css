@@ -95,3 +95,6 @@ footer .meta a{text-decoration:none;}
 
 
 /* static — no on-load animation. Taglines are Times New Roman italic. */
+
+.backlink{text-align:center;font-size:12px;letter-spacing:1px;opacity:.5;margin-top:14px;}
+.backlink a{text-decoration:underline;}
