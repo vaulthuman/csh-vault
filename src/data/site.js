@@ -7,8 +7,8 @@ export const firm = {
   bookingUrl: "#start",
 };
 export const hero = {
-  h1: "The consultant for your assets.",
-  subline: "Strategy for what you own and what you're building — real estate, ventures, and money — from an operator who's developed, financed, and run them.",
+  h1: "Wisdom for real estate, ventures, and the money behind them.",
+  subline: "The whole board, seen clearly, with the right specialists brought in.",
   lede: [
     "Big asset decisions — a development, a purchase, a restructuring, where the money goes — are won or lost long before the paperwork. Most people make them with scattered advice and no one holding the whole picture.",
     "CSH is the consultant who does: development advisory, real estate, and business strategy from someone who's built and operated the real thing. We help you see the whole board and bring the right specialists in.",
