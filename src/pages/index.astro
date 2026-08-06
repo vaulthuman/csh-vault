@@ -13,9 +13,16 @@ const year = new Date().getFullYear();
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- Google Ads gtag (AW-18371546487) + HubSpot conversion listener -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18371546487"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','AW-18371546487');
+window.addEventListener('message',function(e){if(e&&e.data&&e.data.type==='hsFormCallback'&&e.data.eventName==='onFormSubmitted'){gtag('event','conversion',{send_to:'AW-18371546487/r4eECOKGw9wcEPeanrhE'});gtag('event','generate_lead');}});
+</script>
 <style>
-.coachcard{display:flex;align-items:center;gap:16px;margin:0 0 22px}
-.coachcard img{width:96px;height:120px;object-fit:cover;border-radius:10px;flex:0 0 auto}
+.coachcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin:0 auto 22px}
+.coachcard img{width:120px;height:150px;object-fit:cover;border-radius:12px;filter:grayscale(1)}
 .coachname{font-weight:600;margin:0}
 .coachrole{opacity:.7;margin:2px 0 0;font-size:14px}
 </style>
@@ -24,7 +31,7 @@ const year = new Date().getFullYear();
 <header class="site">
 <div class="wrap bar">
 <a class="brand" href="/">{firm.wordmark}</a>
-<a class="navbtn" href={firm.bookingUrl}>Start a conversation</a>
+<a class="navbtn" href="#" data-open-form>Start a conversation</a>
 </div>
 </header>
 
@@ -40,7 +47,7 @@ const year = new Date().getFullYear();
 {hero.lede.map((p) => <p>{p}</p>)}
 </div>
 
-<div class="cta"><a class="btn-fill" href={firm.bookingUrl}>{hero.cta}</a></div>
+<div class="cta"><a class="btn-fill" href="#" data-open-form>{hero.cta}</a></div>
 
 <hr class="rule" />
 
@@ -65,7 +72,7 @@ const year = new Date().getFullYear();
 
 <h2 class="sec">Why Vault</h2>
 <div class="coachcard">
-<img src="https://www.vaulthuman.com/russ-michaels.jpg" alt="Russ Michaels, founder of CSH Vault Consulting" width="96" height="120" />
+<img src="https://www.vaulthuman.com/russ-michaels.jpg" alt="Russ Michaels, founder of CSH Vault Consulting" width="120" height="150" />
 <div><p class="coachname">Russ Michaels</p><p class="coachrole">Founder &middot; CSH Vault Consulting</p></div>
 </div>
 <div class="prose">
@@ -77,7 +84,7 @@ const year = new Date().getFullYear();
 <p class="closing">{closing}</p>
 
 <div class="ctarow" id="start">
-<a class="btn-fill" href={`mailto:${firm.email}`}>Start a conversation</a>
+<a class="btn-fill" href="#" data-open-form>Start a conversation</a>
 </div>
 </div>
 </main>
@@ -85,10 +92,29 @@ const year = new Date().getFullYear();
 <footer class="site">
 <div class="wrap">
 <p class="sig">{firm.legalName.toUpperCase()}</p>
-<p class="meta">{footerLine} &middot; <a href={`mailto:${firm.email}`}>{firm.email}</a> &middot; &copy; {year}</p>
+<p class="meta">{footerLine} &middot; <a href="tel:+18888332510">(888)&nbsp;833-2510</a> &middot; &copy; {year}</p>
 <p class="backlink">A member of the <a href="https://www.vaulthuman.com">Vault Human</a> family of companies.</p>
 </div>
 </footer>
+
+<!-- Start-a-conversation modal -->
+<div id="vh-modal" class="vh-modal" aria-hidden="true">
+<div class="vh-modal__bg" data-close-form></div>
+<div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Start a conversation">
+<button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
+<h2 class="vh-modal__title">Start a conversation</h2>
+<p class="vh-modal__sub">Share a few details and we&rsquo;ll be in touch &mdash; no pressure.</p>
+<div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+</div>
+</div>
+<script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
+<script is:inline>
+(function(){var m=document.getElementById('vh-modal');if(!m)return;
+function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-open-form]');if(t){o(e);return;}if(e.target.closest('[data-close-form]'))c();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
+</script>
 <script>
 addEventListener('DOMContentLoaded',function(){
 if(!('IntersectionObserver'in window))return;
@@ -97,100 +123,6 @@ var e=[].slice.call(document.querySelectorAll(s));
 e.forEach(function(x){x.classList.add('reveal')});
 var o=new IntersectionObserver(function(t){t.forEach(function(y){if(y.isIntersecting){y.target.classList.add('in');o.unobserve(y.target)}})},{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
 e.forEach(function(x){o.observe(x)});
-});
-</script>
-
-</body>
-</html>---
-import '../styles/global.css';
-import { firm, hero, pillars, turn, housingTypes, why, closing, footerLine } from '../data/site.js';
-const year = new Date().getFullYear();
----
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{firm.legalName} — Development Advisors &amp; Business Coaching</title>
-  <meta name="description" content="CSH Vault Consulting — development advisory and operator coaching for land and multifamily housing." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <header class="site">
-    <div class="wrap bar">
-      <a class="brand" href="/">{firm.wordmark}</a>
-      <a class="navbtn" href={firm.bookingUrl}>Start a conversation</a>
-    </div>
-  </header>
-
-  <main>
-    <div class="wrap">
-      <section class="hero">
-        <p class="kicker">{firm.kicker}</p>
-        <h1>{hero.h1}</h1>
-        <p class="subline serif">{hero.subline}</p>
-      </section>
-
-      <div class="lede">
-        {hero.lede.map((p) => <p>{p}</p>)}
-      </div>
-
-      <div class="cta"><a class="btn-fill" href={firm.bookingUrl}>{hero.cta}</a></div>
-
-      <hr class="rule" />
-
-      <section class="cols">
-        {pillars.map((c) => (
-          <div><h3>{c.title}</h3><p>{c.body}</p></div>
-        ))}
-      </section>
-
-      <hr class="rule" />
-
-      <p class="turn">{turn}</p>
-
-      <hr class="rule" />
-
-      <h2 class="sec">What we work in</h2>
-      <div class="tags">
-        {housingTypes.map((t) => <span class="tag">{t}</span>)}
-      </div>
-
-
-      <hr class="rule" />
-
-      <h2 class="sec">Why Vault</h2>
-      <div class="prose">
-        {why.map((p) => <p>{p}</p>)}
-      </div>
-
-      <hr class="rule" />
-
-      <p class="closing">{closing}</p>
-
-      <div class="ctarow" id="start">
-        <a class="btn-fill" href={`mailto:${firm.email}`}>Start a conversation</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site">
-    <div class="wrap">
-      <p class="sig">{firm.legalName.toUpperCase()}</p>
-      <p class="meta">{footerLine} &middot; <a href={`mailto:${firm.email}`}>{firm.email}</a> &middot; &copy; {year}</p>
-      <p class="backlink">A member of the <a href="https://www.vaulthuman.com">Vault Human</a> family of companies.</p>
-    </div>
-  </footer>
-<script>
-addEventListener('DOMContentLoaded',function(){
- if(!('IntersectionObserver'in window))return;
- var s='main .wrap>section:not(.hero),main .wrap>h2,main .wrap>.prose,main .wrap>.lede,main .wrap>.cta,main .wrap>.ctarow,main .wrap>.turn,main .wrap>.closing,main .wrap>.why,main .wrap>.tags,main .wrap>.markets,main .wrap>.pkgs,main .wrap>.areas,main .wrap>.steps,main .wrap>.cols,main .wrap>.pagehead';
- var e=[].slice.call(document.querySelectorAll(s));
- e.forEach(function(x){x.classList.add('reveal')});
- var o=new IntersectionObserver(function(t){t.forEach(function(y){if(y.isIntersecting){y.target.classList.add('in');o.unobserve(y.target)}})},{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
- e.forEach(function(x){o.observe(x)});
 });
 </script>
 
