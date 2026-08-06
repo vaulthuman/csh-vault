@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { firm, hero, pillars, turn, housingTypes, why, closing, footerLine } from '../data/site.js';
+import { firm, hero, pillars, turn, housingTypes, why, closing, footerLine, disclaimer } from '../data/site.js';
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -89,10 +89,12 @@ window.addEventListener('message',function(e){if(e&&e.data&&e.data.type==='hsFor
 </div>
 </main>
 
+  <div class="vh-ribbon" style="text-align:center;padding:22px 16px;border-top:1px solid rgba(139,146,153,.22)"><a href="https://www.vaulthuman.com" style="color:#8B9299;text-decoration:none;font:500 14px/1.6 Inter,system-ui,sans-serif;letter-spacing:.03em">One seat. Your whole life. <strong style="color:#8B9299">Vault Human.</strong></a></div>
 <footer class="site">
 <div class="wrap">
 <p class="sig">{firm.legalName.toUpperCase()}</p>
 <p class="meta">{footerLine} &middot; <a href="tel:+18888332510">(888)&nbsp;833-2510</a> &middot; &copy; {year}</p>
+<p class="disc" style="opacity:.6;font-size:12px;max-width:640px;margin:10px auto 0;line-height:1.5">{disclaimer}</p>
 <p class="backlink">A member of the <a href="https://www.vaulthuman.com">Vault Human</a> family of companies.</p>
 </div>
 </footer>
