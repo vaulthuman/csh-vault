@@ -31,12 +31,11 @@ window.addEventListener('message',function(e){
 });
 
 // 2) PURCHASE conversion — fires when checkout returns to this page with ?purchased=1
-//    >>> TODO: create a new "Purchase" conversion action in Google Ads and paste its send_to below. <<<
 document.addEventListener('DOMContentLoaded',function(){
   var params=new URLSearchParams(window.location.search);
   if(params.get('purchased')==='1'){
     gtag('event','conversion',{
-      send_to:'AW-18371546487/PASTE_PURCHASE_LABEL_HERE', // <-- replace with your Purchase conversion label
+      send_to:'AW-18371546487/2847CLyEwN0cEPeanrhE',
       value:199.0, currency:'USD',
       transaction_id: params.get('order') || undefined
     });
